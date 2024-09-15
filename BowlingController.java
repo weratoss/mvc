@@ -52,12 +52,13 @@ public class BowlingController {
             }
         }
     }
+     // คำนวณอันดับคะแนนจากมากไปน้อย
     private void calculateRanking() {
         String txtDisplay = "";
         // จัดเรียงวัวตามคะแนนจากมากไปน้อย
         Arrays.sort(cows, Comparator.comparingInt(Cow::getScore).reversed());
 
-        // แสดงอันดับวัวแต่ละตัว หากคะแนนเท่ากันให้ครองอันดับร่วม
+        // อันดับวัวแต่ละตัว หากคะแนนเท่ากันให้ครองอันดับร่วม
         int tmp = 0;
         int i = 0;
         for(Cow cow : cows){
@@ -71,7 +72,7 @@ public class BowlingController {
         view.displayFinalResults(txtDisplay); 
     }
     
-     // คำนวณคะแนนรวมของแต่ละทีมและส่งข้อมูลไปแสดงผล
+     // คำนวณคะแนนรวมของแต่ละทีม
     private void calculateTeamScores() {
         int teamAScore = 0;
         int teamBScore = 0;
