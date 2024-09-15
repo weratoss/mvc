@@ -10,8 +10,13 @@ public class BowlingController {
         this.view = view;
     }
 
-    // เริ่มเกม โดยหมุนการเล่นของวัวทั้งหมด
+    // เริ่มเกม 
     public void playGame() {
+        // รีเซ็ตคะแนนของวัวแต่ละตัว
+        for (Cow cow : cows) {
+            cow.setScoreZero();
+        }
+        // มี 10 รอบ
         for (int round = 1; round <= 10; round++) {
             for (Cow cow : cows) {
                 playRound(cow, round);

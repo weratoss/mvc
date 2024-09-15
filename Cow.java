@@ -35,6 +35,10 @@ public class Cow {
         this.score += points;
     }
 
+    public void setScoreZero(){
+        this.score = 0;
+    }
+
     // สุ่มการโยนพิน (สุ่มจำนวนพินที่ล้ม)
     public int roll(int remainingPins) {
         return random.nextInt(remainingPins + 1); // สุ่มตั้งแต่ 0 ถึงพินที่เหลือ 

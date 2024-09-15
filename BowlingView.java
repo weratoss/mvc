@@ -62,9 +62,6 @@ public class BowlingView extends JFrame {
     // ฟังก์ชันสำหรับเริ่มเกมใหม่
     private void resetGame() {
         textArea.setText(""); // ลบข้อมูลใน TextArea
-        for (Cow cow : cows) {
-            cow.addScore(-cow.getScore()); // รีเซ็ตคะแนนของวัวแต่ละตัว
-        }
         if (controller != null) {
             controller.playGame(); // เริ่มเกมใหม่
         }
