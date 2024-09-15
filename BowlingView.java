@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class BowlingView extends JFrame {
     private JTextArea textArea;
     private JButton resetButton;
@@ -28,24 +29,29 @@ public class BowlingView extends JFrame {
                 resetGame(); // เรียกฟังก์ชันเริ่มเกมใหม่
             }
         });
-
         // เพิ่ม TextArea และปุ่มลงใน JFrame
         add(scrollPane, BorderLayout.CENTER);
         add(resetButton, BorderLayout.SOUTH);
     }
 
     // ฟังก์ชันสำหรับแสดงผลการโยนของวัวในแต่ละรอบ
-    public void displayRound(Cow cow, int pinsKnockedDown, String typeScore) {
-        textArea.append("Name :  " + cow.getName() + ", Color : " + cow.getColor() + ", Team : " + cow.getTeam() +
+    public void displayRound(Cow cow, int pinsKnockedDown, String typeScore, int round) {
+        textArea.append(" Round : " + round +" | Name :  " + cow.getName() + ", Color : " + cow.getColor() + ", Team : " + cow.getTeam() +
                 ", down : " + pinsKnockedDown + " pins, typeScore : " + typeScore + "\n");
     }
 
-    // ฟังก์ชันสำหรับแสดงผลคะแนนสุดท้ายของวัวแต่ละตัว
-    public void displayFinalResults(Cow[] cows) {
-        textArea.append("\nFinal Results:\n");
-        for (Cow cow : cows) {
-            textArea.append(cow.getName() + " from " + cow.getTeam() + " scored " + cow.getScore() + " points.\n");
-        }
+    // ฟังก์ชันสำหรับแสดงผลคะแนนสุดท้ายของวัวแต่ละตัว และจัดอันดับตามคะแนน
+    public void displayFinalResults(String txtDisplay) {
+        textArea.append("\n   Final Results (Rankings):\n");
+        textArea.append(txtDisplay);
+    }
+    // ฟังก์ชันสำหรับแสดงผลคะแนนรวมของทีม
+    public void displayTeamResults(int teamAScore, int teamBScore, int teamCScore, String winner) {
+        textArea.append("\n   Team Scores:\n");
+        textArea.append(" Team A: " + teamAScore + " points\n");
+        textArea.append(" Team B: " + teamBScore + " points\n");
+        textArea.append(" Team C: " + teamCScore + " points\n");
+        textArea.append("\n" + winner + "\n");
     }
 
     // ฟังก์ชันสำหรับตั้งค่า Controller
