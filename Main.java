@@ -1,4 +1,5 @@
 public class Main {
+    // 64050676 วีรภัทร พรหมวิจิต
     public static void main(String[] args) {
         // สร้างวัวจากทั้งสามทีม
         Cow cow1 = new Cow("Cow1", "A", "white");
